@@ -1,0 +1,47 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Home Page</h1>
+        
+        <form action="{% url 'home' %}" method="get">
+            <input type='text' name='search' value="{{ request.GET.search }}" placeholder="Search by name"/>
+            <button type="submit">search</button>
+            <br><br>
+            <input type='text' name='search_roll' value="{{ request.GET.search }}" placeholder="Search by Roll no"/>
+            <button type="submit">search</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Roll</th>
+                    <th>Profile</th>
+                    <th>email</th>
+                    <th>Mark</th>
+                    <th>Birthdate</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for st in stu %}
+                <tr>
+                    <td>
+                        <a href="{% url 'inf' st.id %}">
+                        {{st.id}}
+                        </a>
+                    </td>
+                    <td>{{st.name}}</td>
+                    <td>{{st.roll}}</td>
+                    <td>{{st.profile}}</td>
+                    <td>{{st.email}}</td>
+                    <td>{{st.mark}}</td>
+                    <td>{{st.birthdate}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
