@@ -1,0 +1,13 @@
+Que:
+1. How to start project
+2. create app
+3. player name,run,email,birthdate,score
+4. search by each field
+5. views.py & models.py
+
+
+Ans1.
+python -m django startproject player
+
+Ans2.
+python manage.py startapp cricket
