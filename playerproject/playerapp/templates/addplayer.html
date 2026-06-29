@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Add</title>
+{% endblock title %}
+
+{% block body %}
+<h1>Add Player</h1>
+<form method="post">
+    {% csrf_token %}
+    Name: <input type="text" name='player_name'><br><br>
+    Test Innings: <input type="number" name="test_innings"><br><br>
+    Runs: <input type="number" name="runs"><br><br>
+    <input type="submit">
+</form>
+{% endblock body %}

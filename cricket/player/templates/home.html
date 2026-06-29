@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}
+            <title>Home</title>
+{% endblock title %}
+
+{% block body %}
+    <h1>This is home page</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>runs</th>
+                <th>profile</th>
+                <th>email</th>
+                <th>dob</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in p %}
+            <tr>
+                 <td><a href="{% url 'info' i.id %}">
+                {{i.id}}
+                </a></td>
+                <td>{{i.name}}</td>
+                <td>{{i.runs}}</td>
+                <td>{{i.profile}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.dob}}</td>
+            
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+{% endblock body %}
+
+

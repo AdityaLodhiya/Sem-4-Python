@@ -1,0 +1,12 @@
+<html>
+    <head></head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            Name:<input type='text' name='name' value={{stu.name}}>
+            Score:<input type='number' name='score' value={{stu.score}}>
+            Subject:<input type='text' name='sub' value={{stu.sub}}>
+            <input type='submit' value='edit'>
+        </form>
+    </body>
+</html>
