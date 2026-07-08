@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <a href="{% url 'home' %}">home</a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'deshbord' %}">Dashboard</a>
+            Welcome<br>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'register' %}">register</a>
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+        <h1>Welcome to the Home Page</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>name</td>
+                    <td>score</td>
+                    <td>subject</td>
+                    <td>update</td>
+                    <td>delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr>
+                    <td><a href="{% url 'info' i.id %}">{{i.id}}</a></td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.score}}</td>
+                    <td>{{i.sub}}</td>
+                    <td><a href="{% url 'edit' i.id %}">update</a></td>
+                    <td><a href="{% url 'delete_obj' i.id %}">delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'form' %}">open form</a>
+    </body>
+</html>
