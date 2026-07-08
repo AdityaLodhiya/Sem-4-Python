@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Data</h1>
+    <h3><a href="{% url 'add' %}">Add Data</a></h3>
+    <table>
+        <thead>
+            <tr>
+                <td>name</td>
+                <td>subject</td>
+                <td>score</td>
+                <td>grade</td>
+                <td>pr_grade</td>
+                <td>Edit</td>
+                <td>delete</td>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in fac %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.subject}}</td>
+                <td>{{i.score}}</td>
+                <td>{{i.grade}}</td>
+                <td>{{i.pr_grade}}</td>
+                <td><a href="{% url 'edit' i.name %}">Edit</a></td>
+                <td><a href="{% url 'delete' i.name %}">delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
